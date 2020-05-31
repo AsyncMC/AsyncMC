@@ -1,0 +1,6 @@
+[submodule "protocol/bedrock"]
+	path = protocol/bedrock
+	url = https://github.com/AsyncMC/Bedrock-Protocol
+[submodule "protocol/java"]
+	path = protocol/java
+	url = https://github.com/AsyncMC/Java-Protocol

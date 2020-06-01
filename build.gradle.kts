@@ -48,6 +48,11 @@ tasks {
             attributes("Main-Class" to "com.github.asyncmc.boot.AsyncMCBoot")
         }
         
-        archiveClassifier.set("all")
+        destinationDirectory.set(distZip.get().destinationDirectory)
+        archiveClassifier.set("fat")
+    }
+    
+    assembleDist {
+        dependsOn("distJar")
     }
 }

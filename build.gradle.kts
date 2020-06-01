@@ -1,7 +1,6 @@
 import java.util.Properties
 
 plugins {
-    id("com.github.johnrengelman.shadow") version "5.2.0"
     application
 }
 
@@ -12,10 +11,8 @@ java {
 }
 
 application {
-    mainClass.set("com.github.asyncmc.core.AsyncMCLoader")
-    mainClassName = "com.github.asyncmc.core.AsyncMCLoader"
-    mainModule.set("com.github.asyncmc.internal.core")
-    executableDir = "run"
+    mainClass.set("com.github.asyncmc.boot.AsyncMCBoot")
+    mainModule.set("com.github.asyncmc.boot")
 }
 
 repositories {
@@ -34,4 +31,23 @@ fun internal(path: String, name: String = path): String {
         file("$path/gradle.properties").bufferedReader().use(::load)
     }
     return props.getProperty("group")+":$name:"+props.getProperty("version")
+}
+
+tasks {
+    register<Jar>("distJar") {
+        group = "distribution"
+        dependsOn(classes, distZip)
+        from(sourceSets.main.get().runtimeClasspath)
+        from(zipTree(distZip.get().archiveFile.get()).matching {
+            include("**/lib")
+            exclude("**/"+jar.get().archiveFileName.get())
+        })
+        rename("^[^/]+\\.jar$", "libs/$0")
+
+        manifest {
+            attributes("Main-Class" to "com.github.asyncmc.boot.AsyncMCBoot")
+        }
+        
+        archiveClassifier.set("all")
+    }
 }

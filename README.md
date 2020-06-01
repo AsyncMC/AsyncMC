@@ -17,3 +17,7 @@ git clone --recurse-submodules -j8 -b bleeding https://github.com/AsyncMC/AsyncM
 cd AsyncMC
 setup-submodules.bat
 ```
+
+The `master` branch will hold only stable code while `bleeding` will hold all the work in progress.
+
+If you have cloned using different commands, make sure you are using the `bleeding` branch and then run the `setup-submodules` utility to fix your submodules if necessary. **You may loose local changes, so make a backup!**

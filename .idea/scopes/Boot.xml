@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Boot" pattern="src[asyncmc.main]:*..*||src[asyncmc.main]:*||src[core.main]:com.github.asyncmc.core.boot.*" />
+</component>

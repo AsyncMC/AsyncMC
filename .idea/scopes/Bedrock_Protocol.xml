@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Bedrock Protocol" pattern="src[bedrock-protocol.main]:*..*||src[bedrock-protocol]:*..*||test[bedrock-protocol*]:*..*||test[bedrock-protocol.test]:*..*" />
+</component>

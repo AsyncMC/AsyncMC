@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/protocol/bedrock" name="bedrock-protocol">
+                <projects>
+                  <project path="$PROJECT_DIR$/protocol/bedrock" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/protocol/java" name="java-protocol">
+                <projects>
+                  <project path="$PROJECT_DIR$/protocol/java" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/core" name="core">
+                <projects>
+                  <project path="$PROJECT_DIR$/core" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
+        <option name="delegatedBuild" value="false" />
+        <option name="testRunner" value="PLATFORM" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/protocol/bedrock" />
+            <option value="$PROJECT_DIR$/protocol/java" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

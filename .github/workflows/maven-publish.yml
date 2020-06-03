@@ -9,8 +9,9 @@ on:
       - master
       - bleeding
   pull_request:
-    - master
-    - bleeding
+    branches:
+      - master
+      - bleeding
 
 jobs:
   maven-publish:

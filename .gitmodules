@@ -19,16 +19,16 @@
 [submodule "protocol/bedrock"]
 	path = protocol/bedrock
 	url = https://github.com/AsyncMC/Bedrock-Protocol
-    branch = master
+    branch = bleeding
 [submodule "protocol/java"]
 	path = protocol/java
 	url = https://github.com/AsyncMC/Java-Protocol
-    branch = master
+    branch = bleeding
 [submodule "templates/internal"]
 	path = templates/internal
 	url = https://github.com/AsyncMC/Internal-Template.git
-    branch = master
+    branch = bleeding
 [submodule "core"]
 	path = core
 	url = https://github.com/AsyncMC/Internal-Core.git
-    branch = master
+    branch = bleeding

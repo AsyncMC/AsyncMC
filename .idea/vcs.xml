@@ -13,6 +13,7 @@
     <mapping directory="$PROJECT_DIR$/core" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/protocol/bedrock" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/protocol/java" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/protocol/raknet" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/templates/internal" vcs="Git" />
   </component>
 </project>

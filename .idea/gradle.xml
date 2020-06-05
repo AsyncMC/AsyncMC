@@ -17,6 +17,11 @@
                   <project path="$PROJECT_DIR$/protocol/java" />
                 </projects>
               </build>
+              <build path="$PROJECT_DIR$/protocol/raknet" name="raknet-protocol">
+                <projects>
+                  <project path="$PROJECT_DIR$/protocol/raknet" />
+                </projects>
+              </build>
               <build path="$PROJECT_DIR$/core" name="core">
                 <projects>
                   <project path="$PROJECT_DIR$/core" />
@@ -25,8 +30,6 @@
             </builds>
           </compositeBuild>
         </compositeConfiguration>
-        <option name="delegatedBuild" value="false" />
-        <option name="testRunner" value="PLATFORM" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
@@ -35,6 +38,17 @@
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/protocol/bedrock" />
             <option value="$PROJECT_DIR$/protocol/java" />
+            <option value="$PROJECT_DIR$/protocol/raknet" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/templates/internal" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/templates/internal" />
           </set>
         </option>
         <option name="useQualifiedModuleNames" value="true" />

@@ -16,11 +16,14 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import java.util.Properties
+import java.util.*
 
 plugins {
     application
+    `maven-publish`
 }
+
+val isSnapshot = version.toString().endsWith("SNAPSHOT")
 
 java {
     sourceCompatibility = JavaVersion.VERSION_13
@@ -52,7 +55,7 @@ fun internal(path: String, name: String = path): String {
 }
 
 tasks {
-    register<Jar>("distJar") {
+    create<Jar>("distJar") {
         group = "distribution"
         dependsOn(classes, distZip)
         from(sourceSets.main.get().runtimeClasspath)
@@ -73,4 +76,76 @@ tasks {
     assembleDist {
         dependsOn("distJar")
     }
+
+    create<Jar>("sourceJar") {
+        archiveClassifier.set("sources")
+        from(sourceSets.main.get().allSource)
+    }
+
+    withType<Jar>().configureEach {
+        from(projectDir) {
+            include("LICENSE.txt")
+            include("NOTICE.md")
+        }
+    }
 }
+
+
+fun findProp(name: String) = findProperty(name)?.toString()?.takeIf { it.isNotBlank() }
+    ?: System.getenv(name.replace('.', '_').toUpperCase())?.takeIf { it.isNotBlank() }
+
+publishing {
+    repositories {
+        maven {
+            val prefix = if (isSnapshot) "asyncmc.repo.snapshot" else "asyncmc.repo.release"
+            url = uri(findProp("$prefix.url") ?: "$buildDir/repo")
+            when(findProp("$prefix.auth.type")) {
+                "password" -> credentials {
+                    username = findProp("$prefix.auth.username")
+                    password = findProp("$prefix.auth.password")
+                }
+                "aws" -> credentials(AwsCredentials::class.java) {
+                    accessKey = findProp("$prefix.auth.access_key")
+                    secretKey = findProp("$prefix.auth.secret_key")
+                    sessionToken = findProp("$prefix.auth.session_token")
+                }
+                "header" -> credentials(HttpHeaderCredentials::class.java) {
+                    name = findProp("$prefix.auth.header_name")
+                    value = findProp("$prefix.auth.header_value")
+                }
+            }
+        }
+    }
+
+    publications {
+        create<MavenPublication>("parent") {
+            from(components["java"])
+            artifact(tasks["sourceJar"])
+            artifact(tasks["distJar"])
+            pom {
+                name.set("AsyncMC")
+                description.set("AsyncMC is an async, non blocking, open source, copyleft Minecraft Bedrock and Java Edition server written in Kotlin")
+                url.set("https://github.com/AsyncMC/AsyncMC")
+                licenses {
+                    license {
+                        name.set("GNU Affero General Public License, Version 3")
+                        url.set("https://www.gnu.org/licenses/agpl-3.0.html")
+                    }
+                }
+                developers {
+                    developer {
+                        id.set("joserobjr")
+                        name.set("José Roberto de Araújo Júnior")
+                        email.set("joserobjr@gamemods.com.br")
+                    }
+                }
+                scm {
+                    url.set("https://github.com/AsyncMC/AsyncMC")
+                    connection.set("scm:git:https://github.com/AsyncMC/AsyncMC.git")
+                    developerConnection.set("https://github.com/AsyncMC/AsyncMC.git")
+                }
+            }
+        }
+    }
+}
+

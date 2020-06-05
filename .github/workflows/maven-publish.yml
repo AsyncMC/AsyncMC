@@ -1,0 +1,55 @@
+# This workflow will build a Java project with Gradle
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
+
+name: Maven Publish
+
+on:
+  push:
+    branches:
+      - master
+      - bleeding
+  pull_request:
+    branches:
+      - master
+      - bleeding
+
+jobs:
+  maven-publish:
+
+    runs-on: ubuntu-latest
+
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: true
+    - name: Set up JDK 14
+      uses: actions/setup-java@v1
+      with:
+        java-version: 14
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    - name: Publish to Maven repository with Gradle
+      run: ./gradlew publish
+      env:
+        USERNAME: ${{ github.actor }}
+        TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ASYNCMC_REPO_SNAPSHOT_URL: ${{ secrets.ASYNCMC_REPO_SNAPSHOT_URL }}
+        ASYNCMC_REPO_SNAPSHOT_AUTH_TYPE: ${{ secrets.ASYNCMC_REPO_SNAPSHOT_AUTH_TYPE }}
+        ASYNCMC_REPO_SNAPSHOT_AUTH_USERNAME: ${{ secrets.ASYNCMC_REPO_SNAPSHOT_AUTH_USERNAME }}
+        ASYNCMC_REPO_SNAPSHOT_AUTH_PASSWORD: ${{ secrets.ASYNCMC_REPO_SNAPSHOT_AUTH_PASSWORD }}
+        ASYNCMC_REPO_SNAPSHOT_AUTH_ACCESS_KEY: ${{ secrets.ASYNCMC_REPO_SNAPSHOT_AUTH_ACCESS_KEY }}
+        ASYNCMC_REPO_SNAPSHOT_AUTH_SECRET_KEY: ${{ secrets.ASYNCMC_REPO_SNAPSHOT_AUTH_SECRET_KEY }}
+        ASYNCMC_REPO_SNAPSHOT_AUTH_SESSION_TOKEN: ${{ secrets.ASYNCMC_REPO_SNAPSHOT_AUTH_SESSION_TOKEN }}
+        ASYNCMC_REPO_SNAPSHOT_AUTH_HEADER_NAME: ${{ secrets.ASYNCMC_REPO_SNAPSHOT_AUTH_HEADER_NAME }}
+        ASYNCMC_REPO_SNAPSHOT_AUTH_HEADER_VALUE: ${{ secrets.ASYNCMC_REPO_SNAPSHOT_AUTH_HEADER_VALUE }}
+        ASYNCMC_REPO_RELEASE_URL: ${{ secrets.ASYNCMC_REPO_RELEASE_URL }}
+        ASYNCMC_REPO_RELEASE_AUTH_TYPE: ${{ secrets.ASYNCMC_REPO_RELEASE_AUTH_TYPE }}
+        ASYNCMC_REPO_RELEASE_AUTH_USERNAME: ${{ secrets.ASYNCMC_REPO_RELEASE_AUTH_USERNAME }}
+        ASYNCMC_REPO_RELEASE_AUTH_PASSWORD: ${{ secrets.ASYNCMC_REPO_RELEASE_AUTH_PASSWORD }}
+        ASYNCMC_REPO_RELEASE_AUTH_ACCESS_KEY: ${{ secrets.ASYNCMC_REPO_RELEASE_AUTH_ACCESS_KEY }}
+        ASYNCMC_REPO_RELEASE_AUTH_SECRET_KEY: ${{ secrets.ASYNCMC_REPO_RELEASE_AUTH_SECRET_KEY }}
+        ASYNCMC_REPO_RELEASE_AUTH_SESSION_TOKEN: ${{ secrets.ASYNCMC_REPO_RELEASE_AUTH_SESSION_TOKEN }}
+        ASYNCMC_REPO_RELEASE_AUTH_HEADER_NAME: ${{ secrets.ASYNCMC_REPO_RELEASE_AUTH_HEADER_NAME }}
+        ASYNCMC_REPO_RELEASE_AUTH_HEADER_VALUE: ${{ secrets.ASYNCMC_REPO_RELEASE_AUTH_HEADER_VALUE }}

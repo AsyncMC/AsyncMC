@@ -17,7 +17,7 @@
                   <project path="$PROJECT_DIR$/protocol/java" />
                 </projects>
               </build>
-              <build path="$PROJECT_DIR$/protocol/raknet" name="raknet">
+              <build path="$PROJECT_DIR$/protocol/raknet" name="raknet-protocol">
                 <projects>
                   <project path="$PROJECT_DIR$/protocol/raknet" />
                 </projects>

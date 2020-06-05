@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Java Protocol" pattern="src[java-protocol.main]:*..*||src[java-protocol]:*..*||test[java-protocol*]:*..*" />
+</component>

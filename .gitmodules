@@ -18,3 +18,9 @@
 	path = protocol/raknet
 	url = https://github.com/AsyncMC/RakNet-Protocol.git
 	branch = bleeding
+[submodule "protocol/raknet-interface"]
+	path = protocol/raknet-interface
+	url = https://github.com/AsyncMC/RakNet-Interface.git
+[submodule "protocol/raknet-powernukkit"]
+	path = protocol/raknet-powernukkit
+	url = https://github.com/AsyncMC/RakNet-Provider-PowerNukkit

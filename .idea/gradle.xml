@@ -7,6 +7,16 @@
         <compositeConfiguration>
           <compositeBuild compositeDefinitionSource="SCRIPT">
             <builds>
+              <build path="$PROJECT_DIR$/core" name="core">
+                <projects>
+                  <project path="$PROJECT_DIR$/core" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/protocol/raknet" name="raknet-protocol">
+                <projects>
+                  <project path="$PROJECT_DIR$/protocol/raknet" />
+                </projects>
+              </build>
               <build path="$PROJECT_DIR$/protocol/bedrock" name="bedrock-protocol">
                 <projects>
                   <project path="$PROJECT_DIR$/protocol/bedrock" />
@@ -17,14 +27,19 @@
                   <project path="$PROJECT_DIR$/protocol/java" />
                 </projects>
               </build>
-              <build path="$PROJECT_DIR$/protocol/raknet" name="raknet-protocol">
+              <build path="$PROJECT_DIR$/protocol/raknet-service" name="raknet-api">
                 <projects>
-                  <project path="$PROJECT_DIR$/protocol/raknet" />
+                  <project path="$PROJECT_DIR$/protocol/raknet-service" />
                 </projects>
               </build>
-              <build path="$PROJECT_DIR$/core" name="core">
+              <build path="$PROJECT_DIR$/protocol/raknet-provider-asyncmc" name="raknet-provider-asyncmc">
                 <projects>
-                  <project path="$PROJECT_DIR$/core" />
+                  <project path="$PROJECT_DIR$/protocol/raknet-provider-asyncmc" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/protocol/raknet-provider-powernukkit" name="raknet-provider-powernukkit">
+                <projects>
+                  <project path="$PROJECT_DIR$/protocol/raknet-provider-powernukkit" />
                 </projects>
               </build>
             </builds>
@@ -39,19 +54,11 @@
             <option value="$PROJECT_DIR$/protocol/bedrock" />
             <option value="$PROJECT_DIR$/protocol/java" />
             <option value="$PROJECT_DIR$/protocol/raknet" />
+            <option value="$PROJECT_DIR$/protocol/raknet-provider-asyncmc" />
+            <option value="$PROJECT_DIR$/protocol/raknet-provider-powernukkit" />
+            <option value="$PROJECT_DIR$/protocol/raknet-service" />
           </set>
         </option>
-        <option name="useQualifiedModuleNames" value="true" />
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/templates/internal" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/templates/internal" />
-          </set>
-        </option>
-        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
   </component>

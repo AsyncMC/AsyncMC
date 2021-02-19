@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="CommitMessageInspectionProfile">
-    <profile version="1.0">
-      <inspection_tool class="BodyLimit" enabled="true" level="WARNING" enabled_by_default="true" />
-      <inspection_tool class="SubjectLimit" enabled="true" level="WARNING" enabled_by_default="true">
-        <option name="RIGHT_MARGIN" value="64" />
-      </inspection_tool>
-    </profile>
-  </component>
   <component name="VcsDirectoryMappings">
-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/core" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/protocol/bedrock" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/protocol/java" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/protocol/raknet" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/protocol/raknet-provider-asyncmc" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/protocol/raknet-provider-powernukkit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/protocol/raknet-service" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/templates/internal" vcs="Git" />
   </component>
 </project>

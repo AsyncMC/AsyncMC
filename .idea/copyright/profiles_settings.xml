@@ -1,9 +1,0 @@
-<component name="CopyrightManager">
-  <settings default="AsyncMC">
-    <module2copyright>
-      <element module="Java Protocol" copyright="Java Protocol" />
-      <element module="Bedrock Protocol" copyright="Bedrock Protocol" />
-      <element module="All" copyright="AsyncMC" />
-    </module2copyright>
-  </settings>
-</component>

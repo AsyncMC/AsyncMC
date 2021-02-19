@@ -25,6 +25,7 @@
 .idea/**/shelf
 .idea/**/hotswap_agent.xml
 .idea/**/$CACHE_FILES$
+.idea/*
 build
 out
 /run

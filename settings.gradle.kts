@@ -18,5 +18,12 @@
 
 rootProject.name = "asyncmc"
 
-listOf("protocol/bedrock", "protocol/java", "protocol/raknet", "core")
-    .forEach(::includeBuild)
+listOf(
+    "core",
+    "protocol/raknet", "protocol/bedrock", "protocol/java",
+    
+    "protocol/raknet-service", 
+    "protocol/raknet-provider-asyncmc",
+    "protocol/raknet-provider-powernukkit"
+
+).forEach(::includeBuild)

@@ -5,8 +5,8 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_13
-    targetCompatibility = JavaVersion.VERSION_13
+    sourceCompatibility = JavaVersion.VERSION_15
+    targetCompatibility = JavaVersion.VERSION_15
     modularity.inferModulePath.set(true)
 }
 
@@ -16,6 +16,7 @@ application {
 }
 
 repositories {
+    mavenCentral()
     jcenter()
     maven(url = "https://repo.gamemods.com.br/public/")
 }

@@ -24,3 +24,6 @@
 [submodule "protocol/raknet-powernukkit"]
 	path = protocol/raknet-powernukkit
 	url = https://github.com/AsyncMC/RakNet-Provider-PowerNukkit
+[submodule "module-api"]
+	path = module-api
+	url = https://github.com/AsyncMC/Module-API.git
